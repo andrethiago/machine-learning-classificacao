@@ -14,6 +14,12 @@ Ydummies_df = Y_df
 X = Xdummies_df.values
 Y = Ydummies_df.values
 
+# a eficacia do algoritmo que chuta tudo 0 ou 1
+acerto_de_um = len(Y[Y==1])
+acerto_de_zero = len(Y[Y==0])
+taxa_de_acerto_base = 100.0 * max(acerto_de_um, acerto_de_zero) / len(Y)
+print("Taxa de acerto base : %f" % taxa_de_acerto_base)
+
 tamanho_de_treino = int(0.9 * len(Y))
 treino_dados = X[:tamanho_de_treino]
 treino_marcacoes = Y[:tamanho_de_treino]
@@ -33,5 +39,5 @@ acertos = [d for d in diferencas if d == 0]
 total_acertos = len(acertos)
 total_elementos = len(teste_dados)
 taxa_acerto = 100.0 * total_acertos/total_elementos
-print(taxa_acerto)
+print("Taxa de acerto do algoritmo : %f" % taxa_acerto)
 print(total_elementos)
