@@ -1,3 +1,4 @@
+from collections import Counter
 # usando a lib pandas (http://pandas.pydata.org/)
 import pandas as pd
 
@@ -14,10 +15,8 @@ Ydummies_df = Y_df
 X = Xdummies_df.values
 Y = Ydummies_df.values
 
-# a eficacia do algoritmo que chuta tudo 0 ou 1
-acerto_de_um = len(Y[Y==1])
-acerto_de_zero = len(Y[Y==0])
-taxa_de_acerto_base = 100.0 * max(acerto_de_um, acerto_de_zero) / len(Y)
+# a eficacia do algoritmo que chuta um unico valor
+taxa_de_acerto_base = 100.0 * max(Counter(Y).itervalues()) / len(Y)
 print("Taxa de acerto base : %f" % taxa_de_acerto_base)
 
 tamanho_de_treino = int(0.9 * len(Y))
