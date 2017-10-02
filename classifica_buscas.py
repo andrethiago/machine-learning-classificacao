@@ -15,10 +15,6 @@ Ydummies_df = Y_df
 X = Xdummies_df.values
 Y = Ydummies_df.values
 
-# a eficacia do algoritmo que chuta um unico valor
-taxa_de_acerto_base = 100.0 * max(Counter(Y).itervalues()) / len(Y)
-print("Taxa de acerto base : %f" % taxa_de_acerto_base)
-
 tamanho_de_treino = int(0.9 * len(Y))
 treino_dados = X[:tamanho_de_treino]
 treino_marcacoes = Y[:tamanho_de_treino]
@@ -40,3 +36,8 @@ total_elementos = len(teste_dados)
 taxa_acerto = 100.0 * total_acertos/total_elementos
 print("Taxa de acerto do algoritmo : %f" % taxa_acerto)
 print(total_elementos)
+
+
+# a eficacia do algoritmo que chuta um unico valor
+taxa_de_acerto_base = 100.0 * max(Counter(teste_marcacoes).itervalues()) / len(teste_marcacoes)
+print("Taxa de acerto base : %f" % taxa_de_acerto_base)
