@@ -2,7 +2,13 @@ from collections import Counter
 # usando a lib pandas (http://pandas.pydata.org/)
 import pandas as pd
 
-df = pd.read_csv('busca.csv') # df eh um data_frame
+df = pd.read_csv('busca2.csv') # df eh um data_frame
+
+# teste inicial: home, busca, logado => comprou
+# home,busca
+# home,logado
+# busca, logado
+# busca
 
 #pegando X e Y
 X_df = df[['home', 'busca', 'logado']]
