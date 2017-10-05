@@ -1,0 +1,5 @@
+# 3 fases para compararmos algoritmos e escolher o melhor
+
+Fase 1: Treinamos todos os modelos;
+Fase 2: Testamos todos os modelos e comparamos qual o melhor, baseado nos testes;
+Fase 3: Tomamos o melhor modelo e validamos para saber como ele vai se sair no "mundo real" (com um conjunto de dados reais).

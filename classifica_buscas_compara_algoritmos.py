@@ -40,15 +40,21 @@ def fit_and_predict(nome, modelo, treino_dados, treino_marcacoes, teste_dados, t
     total_elementos = len(teste_dados)
     taxa_acerto = 100.0 * total_acertos/total_elementos
     print("Taxa de acerto do algoritmo {0}: {1}".format(nome, taxa_acerto))
+    return taxa_acerto
 
 
 from sklearn.naive_bayes import MultinomialNB
-modelo = MultinomialNB()
-fit_and_predict("MultinomialNB", modelo, treino_dados, treino_marcacoes, teste_dados, teste_marcacoes)
+modelo_multinomial = MultinomialNB()
+resultado_multinomial = fit_and_predict("MultinomialNB", modelo_multinomial, treino_dados, treino_marcacoes, teste_dados, teste_marcacoes)
 
 from sklearn.ensemble import AdaBoostClassifier
-modelo = AdaBoostClassifier()
-fit_and_predict("AdaBoostClassifier", modelo, treino_dados, treino_marcacoes, teste_dados, teste_marcacoes)
+modelo_adaboost = AdaBoostClassifier()
+resulado_adaboost = fit_and_predict("AdaBoostClassifier", modelo_adaboost, treino_dados, treino_marcacoes, teste_dados, teste_marcacoes)
+
+if resultado_multinomial > resulado_adaboost:
+    vencedor = modelo_multinomial
+else:
+    vencedor = modelo_adaboost;
 
 # a eficacia do algoritmo que chuta um unico valor
 taxa_de_acerto_base = 100.0 * max(Counter(teste_marcacoes).itervalues()) / len(teste_marcacoes)
